@@ -38,7 +38,7 @@ app.get("/getClientToken", async (req, res, next) => {
 });
 
 app.post("/checkouts", async (req, res, next) => {
-  console.log('+++++ A ++++++', req.body);
+  console.log('+++++  ++++++', req.body);
   const { amount, paymentMethodNonce } = req.body;
 
   try {
