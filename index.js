@@ -9,14 +9,12 @@ const app = express();
 
 var gateway = braintree.connect({
   environment: braintree.Environment.Sandbox,
-  merchantId: process.env.MERCHANT_ID,
-  publicKey: process.env.PUBLIC_KEY,
-  privateKey: process.env.PRIVATE_KEY,
+  merchantId: '8pch5jjbn3yrm95s',
+  publicKey: '9qwm25677pb4czgz',
+  privateKey: '4d1f133c1c2f183237c51a8a187f5b6a',
 });
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.get("/getClientToken", async (req, res, next) => {
   try {
     gateway.clientToken.generate({}, function(err, response) {
@@ -38,7 +36,7 @@ app.get("/getClientToken", async (req, res, next) => {
 });
 
 app.post("/checkouts", async (req, res, next) => {
-  console.log('+++++  ++++++', req.body);
+  console.log('+++++ A ++++++', req.body);
   const { amount, paymentMethodNonce } = req.body;
 
   try {
